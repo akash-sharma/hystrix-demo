@@ -22,7 +22,7 @@ public class XyzExternalApiService {
   @Value("${xyz.api.baseurl}")
   private String baseUrl;
 
-  @HystrixCommand(fallbackMethod = "getDefaultXyzApiResponse",commandKey = "xyzCommandKey")
+  @HystrixCommand(fallbackMethod = "getDefaultXyzApiResponse", commandKey = "xyzCommandKey")
   public String xyzApi() {
 
     try {
