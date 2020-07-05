@@ -1,6 +1,6 @@
 # hystrix-demo
 
-Hystrix as a Circuit breaker in Spring
+Hystrix as a Circuit breaker in Java
 
 Why to use circuit breaker:
 (1) Avoids overloading the unhealthy downstream service so that it can recover
