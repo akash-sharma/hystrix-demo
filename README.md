@@ -3,10 +3,10 @@
 Hystrix as a Circuit breaker in Spring
 
 Why to use circuit breaker:
-Markup : 1 Avoids overloading the unhealthy downstream service so that it can recover
-         2 It stops cascading failures across services in a distributed environment.
-         3 Helps to create a system that can survive gracefully when key services are either unavailable or have high latency
-         4 It provides fallback options. This helps to add proper error message or error handlings.
+(1) Avoids overloading the unhealthy downstream service so that it can recover
+(2) It stops cascading failures across services in a distributed environment.
+(3) Helps to create a system that can survive gracefully when key services are either unavailable or have high latency
+(4) It provides fallback options. This helps to add proper error message or error handlings.
 
 Developed by Netflix engineering team.
 
