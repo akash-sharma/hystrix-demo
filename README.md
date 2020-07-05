@@ -42,10 +42,12 @@ HystrixObservableCommand : for non blocking I/O
 --> Hystrix artifact for Spring boot versions :
 
 Spring boot version 1.x.x -- spring-cloud-starter-hystrix
+
 Spring boot version 2.x.x -- spring-cloud-starter-netflix-hystrix 
 
 
 --> Add annotation in your Main Spring boot configuration file :
+
 @EnableCircuitBreaker
 
 
@@ -59,7 +61,9 @@ Spring boot version 2.x.x -- spring-cloud-starter-netflix-hystrix
 There are two types of isolation strategies :
 THREAD — it executes on a separate thread and concurrent requests are limited by
         the number of threads in hystrix thread-pool
+	
 SEMAPHORE — it executes on the calling thread and concurrent requests are limited by the semaphore count
+
 Default value is THREAD
 
 
@@ -78,7 +82,9 @@ Default value is 1000.
 
 Hystrix thread pool properties :
 coreSize              (default = 10)
+
 maximumSize    (default = 10)
+
 maxQueueSize   (default = -1)
 
 
@@ -100,7 +106,9 @@ Default value is 10.
 --> How to calculate number of THREADs in Thread pool or count of SEMAPHORE
 
 Theoretical formula for calculating the size is:
+
 Requests per second at peak when healthy × 99th percentile latency in seconds + some breathing room
+
 For Example :
 Requests per second per instance at peak time = 60
 99th % Latency = 200 ms = 0.2 seconds
@@ -163,10 +171,12 @@ Hystrix Dashboard :
 
 
 --> Add annotation in your Main Spring boot configuration file :
+
 @EnableHystrixDashboard
 
 
 --> To enable the Hystrix metrics stream, add to application properties file :
+
 management.endpoints.web.exposure.include=hystrix.stream
 
 
