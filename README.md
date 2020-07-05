@@ -3,11 +3,10 @@
 Hystrix as a Circuit breaker in Spring
 
 Why to use circuit breaker:
-(1) Avoids overloading the unhealthy downstream service so that it can recover
-(2) It stops cascading failures across services in a distributed environment.
-(3) Helps to create a system that can survive gracefully when key services are
-   either unavailable or have high latency
-(4) It provides fallback options. This helps to add proper error message or error handlings.
+Markup : 1 Avoids overloading the unhealthy downstream service so that it can recover
+         2 It stops cascading failures across services in a distributed environment.
+         3 Helps to create a system that can survive gracefully when key services are either unavailable or have high latency
+         4 It provides fallback options. This helps to add proper error message or error handlings.
 
 Developed by Netflix engineering team.
 
@@ -43,7 +42,7 @@ HystrixObservableCommand : for non blocking I/O
 --> Hystrix artifact for Spring boot versions :
 
 Spring boot version 1.x.x -- spring-cloud-starter-hystrix
-Spring boot version 2.x.x -- spring-cloud-starter-netflix-hystrix
+Spring boot version 2.x.x -- spring-cloud-starter-netflix-hystrix 
 
 
 --> Add annotation in your Main Spring boot configuration file :
@@ -66,10 +65,8 @@ Default value is THREAD
 
 (1) For blocking I/O, use a thread-isolated HystrixCommand.
 (2) For nonblocking I/O, use a semaphore-isolated HystrixObservableCommand.
-(3) The only time you should use SEMAPHORE isolation for HystrixCommand
-     to avoid the overhead of separate threads.
-(4) The advantage of the thread pool approach is that requests that are passed
-    to application component can be timed out, something that is not possible when using semaphores.
+(3) The only time you should use SEMAPHORE isolation for HystrixCommand to avoid the overhead of separate threads.
+(4) The advantage of the thread pool approach is that requests that are passed to application component can be timed out, something that is not possible when using semaphores.
 
 
 --> execution.isolation.thread.timeoutInMilliseconds
