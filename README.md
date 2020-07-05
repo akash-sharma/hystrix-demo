@@ -13,6 +13,7 @@ Developed by Netflix engineering team.
 All fallback logic put into a command object.
 
 HystrixCommand : for blocking I/O
+
 HystrixObservableCommand : for non blocking I/O
 
 
@@ -41,9 +42,9 @@ HystrixObservableCommand : for non blocking I/O
 
 --> Hystrix artifact for Spring boot versions :
 
-Spring boot version 1.x.x -- spring-cloud-starter-hystrix
+Spring boot version 1.x.x --> spring-cloud-starter-hystrix
 
-Spring boot version 2.x.x -- spring-cloud-starter-netflix-hystrix 
+Spring boot version 2.x.x --> spring-cloud-starter-netflix-hystrix 
 
 
 --> Add annotation in your Main Spring boot configuration file :
