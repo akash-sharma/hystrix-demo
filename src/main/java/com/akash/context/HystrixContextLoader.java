@@ -7,7 +7,7 @@ import com.netflix.hystrix.strategy.HystrixPlugins;
 
 public class HystrixContextLoader {
 
-  // Reload metrics at runtime
+  // Reload Hystrix properties at runtime
   public void loadProperty(String propertyName, String propertyValue) {
 
     ConcurrentCompositeConfiguration config =

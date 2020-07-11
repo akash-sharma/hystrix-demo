@@ -182,3 +182,16 @@ management.endpoints.web.exposure.include=hystrix.stream
 
 
 ===========================================
+
+    // Reload Hystrix properties at runtime
+	public void loadProperty(String propertyName, String propertyValue) {
+
+		ConcurrentCompositeConfiguration config =
+			(ConcurrentCompositeConfiguration) ConfigurationManager.getConfigInstance();
+		config.setOverrideProperty(propertyName, propertyValue);
+		Hystrix.reset();
+		HystrixPlugins.reset();
+	}
+
+
+===========================================
