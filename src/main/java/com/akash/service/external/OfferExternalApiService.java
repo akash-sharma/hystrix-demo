@@ -13,36 +13,36 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class XyzExternalApiService {
+public class OfferExternalApiService {
 
-  private static final Logger LOGGER = LogManager.getLogger(XyzExternalApiService.class);
+  private static final Logger LOGGER = LogManager.getLogger(OfferExternalApiService.class);
 
   @Autowired private RestTemplate restTemplate;
 
-  @Value("${xyz.api.baseurl}")
+  @Value("${offer.api.baseurl}")
   private String baseUrl;
 
-  @HystrixCommand(fallbackMethod = "getDefaultXyzApiResponse", commandKey = "xyzCommandKey")
-  public String xyzApi() {
+  @HystrixCommand(fallbackMethod = "getFallbackOfferApiResponse", commandKey = "offerCommandKey")
+  public String offerApi() {
 
     try {
       String response = restTemplate.getForObject(baseUrl + Route.MOCK_API, String.class);
-      LOGGER.info("xyz api response : {}", response);
+      LOGGER.info("offer api response : {}", response);
       return response;
     } catch (RestClientException e) {
       return getErrorResponse(e);
     }
   }
 
-  // fallback method of xyzApi hystrix
-  private String getDefaultXyzApiResponse() {
+  // fallback method of offerApi
+  private String getFallbackOfferApiResponse() {
 
-    LOGGER.info("getDefaultXyzApiResponse() executed");
+    LOGGER.info("getFallbackOfferApiResponse() executed");
     // push fallback metrics
     return "This is fallback Response";
   }
 
-  // handling 4xx response as success
+  // handling 4xx response
   private String getErrorResponse(RestClientException e) {
 
     if (e instanceof HttpClientErrorException) {
